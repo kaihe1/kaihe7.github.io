@@ -8,15 +8,30 @@
   <body>
     <p id="locA"></p>
     <script>
+      var distance;
+      var mLa;
+      var mLo;
         function setup() {
             if (geoCheck() == true) {
-                document.getElementById('locA').innerHTML = "Ready";
+                document.getElementById('locA').innerHTML = "ready";
                 
             } else {
-                document.getElementById('loc').innerHTML = "Needed GPS Enable";
+                document.getElementById('loc').innerHTML = "needed GPS enable";
             }
             intervalCurrentPosition(positionPing,1000);
             enableHighAccuracy: true;
+        }
+        function positionPing(postion){
+           mLa = position.latitude;
+           mLo = position.longitude;
+           distance = calcGeoDistance(mylat,mylon,21,311852,-157.838324,'mi');
+           document.getElementById('distance').innerHTML = distance.toFixed(5);
+            if (distance < 0.001) {
+                document.getElementById('loc').innerHTML = "TREASURE!";
+            }
+            else {
+                document.getElementById('locA').innerHTML = "";
+            }
         }
     </script>
   </body>
