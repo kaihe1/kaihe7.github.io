@@ -18,9 +18,9 @@
            mLa = position.latitude;
            mLo = position.longitude;
            distance = calcGeoDistance(mLa,mLo,21,311852,-157.838324,'mi');
-           document.getElementById('distance').innerHTML = distance.toFixed(5);
+           document.getElementById('locA').innerHTML = distance.toFixed(5);
             if (distance < 0.001) {
-                document.getElementById('loc').innerHTML = "TREASURE!";
+                document.getElementById('locA').innerHTML = "TREASURE!";
             }
             else {
                 document.getElementById('locA').innerHTML = "";
