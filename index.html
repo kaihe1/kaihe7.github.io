@@ -9,15 +9,8 @@
     <p id="locA"></p>
     <script>
       var distance;
-      var mLa;
-      var mLo;
+
         function setup() {
-            if (geoCheck() == true) {
-                document.getElementById('locA').innerHTML = "ready";
-                
-            } else {
-                document.getElementById('loc').innerHTML = "needed GPS enable";
-            }
             intervalCurrentPosition(positionPing,1000);
             enableHighAccuracy: true;
         }
