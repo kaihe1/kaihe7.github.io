@@ -18,12 +18,7 @@
            mLa = position.latitude;
            mLo = position.longitude;
            distance = calcGeoDistance(mLa,mLo,21,311852,-157.838324,'mi');
-           document.getElementById('locA').innerHTML = distance.toFixed(5);
-            if (distance < 0.001) {
-                document.getElementById('locA').innerHTML = "TREASURE!";
-            }
-            else {
-                document.getElementById('locA').innerHTML = "";
+           document.getElementById('locA').innerHTML = "you are " + distance.toFixed(5) + " mi away";
             }
         }
     </script>
