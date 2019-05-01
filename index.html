@@ -6,14 +6,14 @@
   </head>
   
   <body>
+    <p id="locA"></p>
     <script>
-        var distance;
         function setup() {
             if (geoCheck() == true) {
-                document.getElementById('locAvail').innerHTML = "Ready";
+                document.getElementById('locA').innerHTML = "Ready";
                 
             } else {
-                document.getElementById('locAvail').innerHTML = "Must have GPS Enabled";
+                document.getElementById('loc').innerHTML = "Needed GPS Enable";
             }
             intervalCurrentPosition(positionPing,1000);
             enableHighAccuracy: true;
