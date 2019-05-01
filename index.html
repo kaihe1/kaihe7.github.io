@@ -1,0 +1,23 @@
+<html>
+  <head>
+   <script src="p5.min.js"></script>
+    <script src="p5.geolocation.js"></script>
+
+  </head>
+  
+  <body>
+    <script>
+        var distance;
+        function setup() {
+            if (geoCheck() == true) {
+                document.getElementById('locAvail').innerHTML = "Ready";
+                
+            } else {
+                document.getElementById('locAvail').innerHTML = "Must have GPS Enabled";
+            }
+            intervalCurrentPosition(positionPing,1000);
+            enableHighAccuracy: true;
+        }
+    </script>
+  </body>
+</html>
