@@ -17,7 +17,7 @@
         function positionPing(postion){
            mLa = position.latitude;
            mLo = position.longitude;
-           distance = calcGeoDistance(mylat,mylon,21,311852,-157.838324,'mi');
+           distance = calcGeoDistance(mLa,mLo,21,311852,-157.838324,'mi');
            document.getElementById('distance').innerHTML = distance.toFixed(5);
             if (distance < 0.001) {
                 document.getElementById('loc').innerHTML = "TREASURE!";
