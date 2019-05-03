@@ -13,7 +13,8 @@
   </head>
   
   <body>
-    <p id="locA"></p>
+   <h1 id="locA"></h1>
+    <h1 id="distance"></h1>
     <script>
     
         var distance;
@@ -30,14 +31,14 @@
                 $.getElementById('locA').innerHTML = "Must have GPS Enabled";
             }
             //500 is in milliseconds of how often location data will be pulled
-            intervalCurrentPosition(positionPing,1000);
+            intervalCurrentPosition(positionPing,500);
             enableHighAccuracy: true;
         }
-        function positionPing(postion){
+        function positionPing(position){
            mylat = position.latitude;
            mylon = position.longitude;
            distance = calcGeoDistance(mLa,mLo,treasurelat,treasurelon,'mi');
-           
+           document.getElementById('distance').innerHTML = "You are " + distance.toFixed(5) + " miles away.";
            if ( distance < 0.008) {
              document.getElementById('locA').innerHTML = "You found the Treasure";
              document.body.style.backgroundColor = "#E55934";
