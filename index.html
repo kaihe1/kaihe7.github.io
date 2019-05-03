@@ -2,24 +2,54 @@
   <head>
    <script src="p5.min.js"></script>
     <script src="p5.geolocation.js"></script>
-
+<style>
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+</style>
   </head>
   
   <body>
     <p id="locA"></p>
     <script>
-      var distance;
-
+    
+        var distance;
+        var mylat;
+        var mylon;
+        var treasurelat = 21,311852;
+        var treasurelon = -157.838324;
+        
         function setup() {
+           if (geoCheck() == true) {
+                $.getElementById('locAvail').innerHTML = "Ready";
+                
+            } else {
+                $.getElementById('locAvail').innerHTML = "Must have GPS Enabled";
+            }
+            //500 is in milliseconds of how often location data will be pulled
             intervalCurrentPosition(positionPing,1000);
             enableHighAccuracy: true;
         }
         function positionPing(postion){
-           mLa = position.latitude;
-           mLo = position.longitude;
-           distance = calcGeoDistance(mLa,mLo,21,311852,-157.838324,'mi');
-           document.getElementById('locA').innerHTML = "you are " + distance.toFixed(5) + " mi away";
-           document.getElementById('locA').innerHTML = "Hiiii ";
+           mylat = position.latitude;
+           mylon = position.longitude;
+           distance = calcGeoDistance(mLa,mLo,treasurelat,treasurelon,'mi');
+           
+           if ( distance < 0.008) {
+             document.getElementById('locA').innerHTML = "You found the Treasure";
+             document.body.style.backgroundColor = "#E55934";
+           }
+           else if (distance < 0.1) {
+                document.getElementById('locA').innerHTML = "Getting Warmer";
+                document.body.style.backgroundColor = "#FDE74C";
+            }
+            else {
+                document.getElementById('locA').innerHTML = "Cold";
+                document.body.style.backgroundColor = "#3C91E6";
+            }
             }
         }
     </script>
