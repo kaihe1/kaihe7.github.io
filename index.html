@@ -20,7 +20,7 @@
         var distance;
         var mylat;
         var mylon;
-        var treasurelat = 21,311852;
+        var treasurelat = 21.311852;
         var treasurelon = -157.838324;
         
         function setup() {
@@ -37,7 +37,7 @@
         function positionPing(position){
            mylat = position.latitude;
            mylon = position.longitude;
-           distance = calcGeoDistance(mLa,mLo,treasurelat,treasurelon,'mi');
+           distance = calcGeoDistance(mylat,mylon,treasurelat,treasurelon,'mi');
            document.getElementById('distance').innerHTML = "You are " + distance.toFixed(5) + " miles away.";
            if ( distance < 0.008) {
              document.getElementById('locA').innerHTML = "You found the Treasure";
